@@ -1,28 +1,38 @@
-class OthelloGame:
-    def __init__(self):
-        self.board = None  # ボードの初期化
-        self.current_player = 'X'  # 最初のプレイヤー
+import pygame
 
-    def initialize_game(self):
-        # ゲームの初期化処理
-        pass
+pygame.init()
 
-    def switch_player(self):
-        # プレイヤーのターンを切り替える処理
-        self.current_player = 'O' if self.current_player == 'X' else 'X'
+#ゲーム画面の作成
+screen_width = 800
+screen_height = 800
+screen = pygame.display.set_mode((screen_width, screen_height))
+pygame.display.set_caption("オセロ")
 
-    def play_turn(self):
-        # プレイヤーのターンを処理するメソッド
-        pass
+#マスの設定
+square_num = 8
+square_size = screen_width//square_num
 
-    def check_winner(self):
-        # 勝者を判定するメソッド
-        pass
+#フレームレートの設定
+FPS = 60
+clock = pygame.time.Clock()
 
-if __name__ == "__main__":
-    game = OthelloGame()
-    game.initialize_game()
-    while True:
-        game.play_turn()
-        if game.check_winner():
-            break
+#色の設定
+White = (255, 255, 255)
+Black = (0, 0, 0)
+Red = (255, 0, 0)
+Green = (0, 255, 0)
+Blue = (0, 0, 255)
+Yellow = (255, 255, 0)
+
+#メインループ========================================
+run = True
+while run:
+
+#イベントの取得
+    for event in pygame.event.get():
+        if event.type==pygame.Quit():
+            run = False
+
+#===================================================
+
+pygame.quit()
