@@ -28,10 +28,36 @@ Yellow = (255, 255, 0)
 run = True
 while run:
 
-#イベントの取得
+#背景の塗りつぶし
+    screen.fill(Green)
+
+#マスの描画 
+    for i in range(square_num):
+        #横線
+        pygame.draw.line(screen, Black, (0, i*square_size), (screen_width, i*square_size), 3)
+        
+        #縦線
+        pygame.draw.line(screen, Black, (i*square_size, 0), (i*square_size, screen_height), 3)
+
+#盤面(黒 : 1, 白　: -1,)
+board = [
+    [0, 0, 0, 0, 0, 0, 0, 0, ],
+    [0, 0, 0, 0, 0, 0, 0, 0, ],
+    [0, 0, 0, 0, 0, 0, 0, 0, ],
+    [0, 0, 0, 1, -1, 0, 0, 0, ],
+    [0, 0, 0, -1, 1, 0, 0, 0, ],
+    [0, 0, 0, 0, 0, 0, 0, 0, ],
+    [0, 0, 0, 0, 0, 0, 0, 0, ],
+    [0, 0, 0, 0, 0, 0, 0, 0, ]]
+
+#イベントの取得 
     for event in pygame.event.get():
-        if event.type==pygame.Quit():
+        if event.type == pygame.QUIT:
             run = False
+
+#画面の更新
+    pygame.display.update()
+    clock.tick(FPS)
 
 #===================================================
 
