@@ -1,10 +1,6 @@
-age = 2
-if age > 5:
-    print("messege")
-elif age < 3:
-    print("athor mseege")
-elif age < 2: 
-    print("diffferent messege")
+age = input("Enter your age please:")
+int_age = int(age)
+if int_age > 18:
+    print("aha, you are an adult!")
 else:
-    print("else messege")
-      
+    print("you are still a kid !")
